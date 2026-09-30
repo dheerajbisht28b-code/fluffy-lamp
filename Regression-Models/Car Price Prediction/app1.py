@@ -27,7 +27,7 @@ def load_model():
 
 @st.cache_data
 def load_data():
-    return pd.read_csv(os.path.join(base_dir,'Cleaned car data.csv')
+    return pd.read_csv(os.path.join(base_dir,'Cleaned car data.csv'))
 
 model = load_model()
 data = load_data()
