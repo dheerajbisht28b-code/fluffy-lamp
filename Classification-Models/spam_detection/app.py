@@ -9,7 +9,7 @@ st.set_page_config(page_title="Spam Detection App", page_icon="", layout="wide")
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
 # 1. Load your saved files
-model = joblib.load(os.path.join(base_dir, 'spam_model.joblib'))
+model = joblib.load(os.path.join(base_dir, 'Spam_model.joblib'))
 vectorizer = joblib.load(os.path.join(base_dir, 'vectorizer.joblib'))
 
 # 2. Create the Sidebar for Model Info
