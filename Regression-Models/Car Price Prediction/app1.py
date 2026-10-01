@@ -4,6 +4,7 @@ import joblib
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
+import os
 
 # ─── Page Config ───
 st.set_page_config(page_title="Car Price Predictor", page_icon="", layout="wide")
@@ -19,13 +20,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ─── 1. Load Model & Data ───
+base_dir = os.path.dirname(os.path.abspath(__file__))
 @st.cache_resource
 def load_model():
-    return joblib.load('car_price_MLR_model.pkl')
+    return joblib.load(os.path.join(base_dir,'car_price_MLR_model.pkl'))
 
 @st.cache_data
 def load_data():
-    return pd.read_csv('Cleaned car data.csv')
+    return pd.read_csv(os.path.join(base_dir,'Cleaned car data.csv'))
 
 model = load_model()
 data = load_data()
