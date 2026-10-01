@@ -1,9 +1,16 @@
 import joblib
 import streamlit as st
+import os
+
+# ─── Page Config ───
+st.set_page_config(page_title="Spam Detection App", page_icon="", layout="wide")
+
+# ─── 1. Load Model & Data ───
+base_dir = os.path.dirname(os.path.abspath(__file__))
 
 # 1. Load your saved files
-model = joblib.load('spam_model.joblib')
-vectorizer = joblib.load('vectorizer.joblib')
+model = joblib.load(os.path.join(base_dir, 'spam_model.joblib'))
+vectorizer = joblib.load(os.path.join(base_dir, 'vectorizer.joblib'))
 
 # 2. Create the Sidebar for Model Info
 st.sidebar.title("🤖 Model Information")
